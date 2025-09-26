@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.node {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc; /* Add a border to see the grid cells */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
