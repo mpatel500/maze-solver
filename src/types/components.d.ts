@@ -10,4 +10,5 @@ export type NodeProps = {
   row: number;
   col: number;
   cellType: NodeType;
+  handleClick: (row: number, col: number) => void;
 };

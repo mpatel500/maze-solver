@@ -1,18 +1,11 @@
 import type { NodeProps } from "./types/components";
-import { useState } from "react";
 
-const Node = ({ cellType, row, col }: NodeProps) => {
-  const [color, setColor] = useState(cellType);
-
-  const handleClick = () => {
-    setColor("start");
-  };
-
+const Node = ({ cellType, row, col, handleClick }: NodeProps) => {
   return (
     <div
       key={`row-${row}-col-${col}`}
-      className={`node node-${color}`}
-      onClick={handleClick}
+      className={`node node-${cellType}`}
+      onClick={() => handleClick(row, col)}
     ></div>
   );
 };
