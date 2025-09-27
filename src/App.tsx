@@ -26,7 +26,7 @@ export default function App() {
   });
 
   const handleNodeClick = (row: number, col: number) => {
-    const index = row * ROWS + col;
+    const index = row * COLS + col;
     const newGrid = [...grid];
     newGrid[index].cellType = "end";
     setGrid(newGrid);
