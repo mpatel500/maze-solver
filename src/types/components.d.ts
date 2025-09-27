@@ -1,9 +1,13 @@
-export type NodeType = {
+export type NodeType =
+  | "wall"
+  | "path"
+  | "start"
+  | "end"
+  | "visited"
+  | "current";
+
+export type NodeProps = {
   row: number;
   col: number;
-  isStart: boolean;
-  isEnd: boolean;
-  isWall: boolean;
-  isVisited: boolean;
-  isPath: boolean;
+  cellType: NodeType;
 };

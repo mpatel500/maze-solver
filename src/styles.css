@@ -3,6 +3,17 @@
   text-align: center;
 }
 
+.grid-container {
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  display: flex;
+  width: min-content; /* Ensure the container only takes up the grid space */
+  flex-wrap: wrap;
+}
+
 .node {
   width: 20px;
   height: 20px;
@@ -11,4 +22,22 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+.node-wall {
+  background-color: #b0bec5; /* Light Slate Blue */
+}
+.node-path {
+  background-color: #e0f7fa; /* Pale Cyan */
+}
+.node-start {
+  background-color: #a8dadc; /* Soft Teal */
+}
+.node-end {
+  background-color: #f4a261; /* Light Salmon/Peach */
+}
+.node-visited {
+  background-color: #b5ead7; /* Mint Green */
+}
+.node-current {
+  background-color: #ffd1dc; /* Soft Pink */
 }

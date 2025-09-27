@@ -1,18 +1,15 @@
 import "./styles.css";
 import { useState, useEffect } from "react";
-import type { NodeType } from "./types/components";
+import type { NodeProps } from "./types/components";
+import Node from "./Node";
 
 const ROWS = 25;
 const COLS = 30;
 
-const createNode = (row: number, col: number): NodeType => ({
+const createNode = (row: number, col: number): NodeProps => ({
   row,
   col,
-  isStart: false,
-  isEnd: false,
-  isWall: false,
-  isVisited: false,
-  isPath: false,
+  cellType: "path",
 });
 
 const createGrid = () => {
@@ -25,16 +22,8 @@ const createGrid = () => {
   return initialGrid;
 };
 
-const handleClick = (event) => {
-  console.log("clicked!");
-};
-
-const Node = (props: NodeType) => (
-  <div className="node" onClick={handleClick}></div>
-);
-
 export default function App() {
-  const [grid, setGrid] = useState<NodeType[]>([]);
+  const [grid, setGrid] = useState<NodeProps[]>([]);
 
   useEffect(() => {
     const newGrid = createGrid();
@@ -42,19 +31,22 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App flex">
-      <div
-        id="grid-container"
-        className="grid-container flex flex-wrap"
-        style={{
-          display: "grid", // <-- Essential!
-          gridTemplateColumns: `repeat(${COLS}, 1fr)`,
-          gap: "1px",
-        }}
-      >
-        {grid.map((node) => (
-          <Node {...node} />
-        ))}
+    <div className="App">
+      <p>Maze Solver</p>
+      <div className="grid-container">
+        <div
+          id="grid"
+          className="grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: `repeat(${COLS}, 1fr)`,
+            gap: "1px",
+          }}
+        >
+          {grid.map((node) => (
+            <Node {...node} />
+          ))}
+        </div>
       </div>
     </div>
   );
